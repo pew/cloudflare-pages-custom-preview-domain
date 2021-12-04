@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "cloudflare-pages-custom-preview-domain",
+  "version": "1.0.0",
+  "description": "use custom domains for your cloudflare pages project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write '**/*.{js,css,json,md}'"
+  },
+  "author": "Jonas Wagner <boom@confuflux.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.5.0"
+  }
+}
