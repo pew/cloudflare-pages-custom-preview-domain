@@ -18,10 +18,16 @@ you'll create a Worker which calls the Cloudflare API from time to time (defined
 | projectName      | cloudflare pages project NAME | no          |
 
 4. create a Cloudflare KV namespace (you can do this in the Workers Dashboard)
-5. add the Namespace to your Worker (open the Worker > Settings > Variables > _KV Namespace Bindings_)
-6. [create a _cron trigger_ to execute every hour](https://developers.cloudflare.com/workers/platform/cron-triggers)
-7. open the cloudflare worker editor and paste the contents of the `index.js` file in this repo in there.
-8. assign a route in the Cloudflare Dashboard to match your Worker, like so:
+5. add one key to the namespace already. use `route` for the key name and the route you want to use for this worker in the `value` field, something like that:
+
+| key   | value                         |
+| ----- | ----------------------------- |
+| route | https://subdomain.example.com |
+
+6. add the Namespace to your Worker (open the Worker > Settings > Variables > _KV Namespace Bindings_)
+7. [create a _cron trigger_ to execute every hour](https://developers.cloudflare.com/workers/platform/cron-triggers)
+8. open the cloudflare worker editor and paste the contents of the `index.js` file in this repo in there.
+9. assign a route in the Cloudflare Dashboard to match your Worker, like so:
 
 ```
 subdomain.example.com/* => your-worker

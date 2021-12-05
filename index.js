@@ -20,10 +20,15 @@ async function handleScheduled() {
 
 async function handleRequest(request) {
   const url = await deployment_id.get('preview_name')
+  const myRoute = await deployment_id.get('route')
   // Make the headers mutable by re-constructing the Request.
   request = new Request(request)
   let response = await fetch(url + new URL(request.url).pathname, request)
   // Make the headers mutable by re-constructing the Response.
   response = new Response(response.body, response)
+  if (response.headers.get('location')) {
+    let locationHeader = response.headers.get('location')
+    response.headers.set('location', locationHeader.replace(url, myRoute))
+  }
   return response
 }
